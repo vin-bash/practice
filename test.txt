@@ -1,0 +1,27 @@
+Universe name started
+
+select distinct e2.universe_name,e1.Start_Time from  BOE_DM_CP.Audit_Event_Document_Refresh e1 join BOE_DM_CP.AUDIT_EVENT_UNIVERSE_CROSSREF e2 on e1.event_id = e2.event_id 
+where e1.Start_Time >= to_date('1-Jan-18','dd-mon-yy');
+
+without time stamp
+
+select distinct e2.universe_name from  BOE_DM_CP.Audit_Event_Document_Refresh e1 join BOE_DM_CP.AUDIT_EVENT_UNIVERSE_CROSSREF e2 on e1.event_id = e2.event_id 
+where e1.Start_Time >= to_date('1-Jan-18','dd-mon-yy');
+
+User count=  12046
+
+select  count(distinct user_name) from BOE_DM_CP.Audit_Event_Document_Refresh where Start_Time >= to_date('1-Jan-18','dd-mon-yy');
+
+Report count
+
+select status_id,document_name from BOE_DM_CP.Audit_Event_Document_Refresh where status_id = 1;
+
+select count(distinct document_name) from BOE_DM_CP.Audit_Event_Document_Refresh where status_id = 1;
+
+select count(distinct document_name) from BOE_DM_CP.Audit_Event_Document_Refresh where status_id = 0;
+
+
+select count(distinct document_name) from BOE_DM_CP.Audit_Event_Document_Refresh where status_id = 1 and Start_Time >= to_date('1-Jan-18','dd-mon-yy');
+
+
+select count(distinct document_name) from BOE_DM_CP.Audit_Event_Document_Refresh where status_id = 0 and Start_Time >= to_date('1-Jan-18','dd-mon-yy');
